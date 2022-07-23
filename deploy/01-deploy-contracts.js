@@ -1,3 +1,4 @@
+const { ethers } = require("hardhat")
 const { developmentChains, networkConfig } = require("../helper-hardhat-config")
 const { verify } = require("../utils/verify.js")
 
@@ -12,7 +13,8 @@ module.exports = async ({ deployments, getNamedAccounts }) => {
         log: true,
     })
     /* Initialize price oracle (swap router address) */
-    await oracle.initialize(networkConfig[chainId]["lpOracle"])
+    oracleC = await ethers.getContract("PriceOracle")
+    //await oracleC.initialize(networkConfig[chainId]["lpOracle"])
 
     const access = await deploy("AccessController", {
         from: deployer,
@@ -22,7 +24,7 @@ module.exports = async ({ deployments, getNamedAccounts }) => {
 
     const vault = await deploy("MyModule", {
         from: deployer,
-        args: [iManager],
+        args: [networkConfig[chainId]["vault"]],
         log: true,
     })
 
@@ -32,6 +34,9 @@ module.exports = async ({ deployments, getNamedAccounts }) => {
         args: argsIM,
         log: true,
     })
+
+    vaultC = await ethers.getContract("MyModule")
+    //await vaultC.addOwner(iManager.address)
 
     const isLib = await deploy("IndexSwapLibrary", {
         from: deployer,
@@ -44,7 +49,9 @@ module.exports = async ({ deployments, getNamedAccounts }) => {
         args: [],
         log: true,
     })
-    await iSwap.initialize(
+
+    iSwapC = await ethers.getContract("IndexSwap")
+    /* await iSwapC.initialize(
         networkConfig[chainId]["token"],
         networkConfig[chainId]["symbol"],
         networkConfig[chainId]["address"],
@@ -54,21 +61,21 @@ module.exports = async ({ deployments, getNamedAccounts }) => {
         iManager.address,
         access.address
     )
-    await iSwap.init(
+    await iSwapC.init(
         networkConfig[chainId]["tokenAdd"],
         networkConfig[chainId]["denorms"]
-    )
+    ) */
 
     if (!developmentChains.includes(network.name)) {
         log("Verifying...")
         await verify(
-            iSwap.address,
+            oracle.address,
             [],
             "contracts/oracle/PriceOracle.sol:PriceOracle"
         )
         await verify(
             vault.address,
-            [deployer],
+            [networkConfig[chainId]["vault"]],
             "contracts/vault/MyModule.sol:MyModule"
         )
         await verify(

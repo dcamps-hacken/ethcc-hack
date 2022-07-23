@@ -14,9 +14,9 @@ const networkConfig = {
         ],
     },
     137: {
-        name: "polygon",
+        name: "matic",
         token: "Wrapped Matic",
-        symbol: "WMATIC",
+        symbol: "wMATIC",
         address: "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
         lpOracle: "0x831753dd7087cac61ab5644b308642cc1c33dc13",
         weth: "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
@@ -30,23 +30,13 @@ const networkConfig = {
             "0x8505b9d2254A7Ae468c0E9dd10Ccea3A837aef5c",
         ],
         denorms: [2000, 2000, 2000, 2000, 2000],
-        vault: "matic:0x2053B29Bb5B62D498F541fBC13bEfBB36BF52659",
+        vault: "0x2053B29Bb5B62D498F541fBC13bEfBB36BF52659",
     },
-    /* 80001: {
-        name: "mumbai",
-        lpOracle: "0x8954afa98594b838bda56fe4c12a09d7739d179b",
-        weth: "0xa6fa4fb5f76172d178d61b04b0ecd319c5d1c0aa",
-        mkr:,
-        uni:,
-        link:"0x70d1F773A9f81C852087B77F6Ae6d3032B02D2AB",
-        aave:,
-        comp:,
-    }, */
     42220: {
         name: "celo",
         lpOracle: "0x1c8e0f6e5619c50aafc9214cbbcfc5d2fb3bf6c1",
         token: "Wrapped Celo",
-        symbol: "WCELO",
+        symbol: "wCELO",
         address: "0x3Ad443d769A07f287806874F8E5405cE3Ac902b9",
         weth: "0x122013fd7df1c6f636a5bb8f03108e876548b455",
         tokenNames: [
@@ -65,21 +55,27 @@ const networkConfig = {
             "0xef4229c8c3250C675F21BCefa42f58EfbfF6002a",
         ],
         denorms: [2000, 2000, 2000, 2000, 2000],
+        vault: "0x89E2539ADBf0c366f2f076f1B53b06F61266c10E",
     },
-    44787: {
-        name: "alfajor",
-        /* lpOracle:,
-        weth:, */
-    },
-    /* 245022934: {
-        name: "neon",
+    /* 245022926: {
+        name: "neonlabs",
         lpOracle:,
-        weth:,
-    },
-    245022926: {
-        name: "neon-dev",
-        lpOracle:,
-        weth:,
+        token: "Wrapped Neon",
+        symbol: "WNEON",
+        address: "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+        lpOracle: "0x831753dd7087cac61ab5644b308642cc1c33dc13",
+        weth: "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+        tokenNames: ["Wrapped BTC (Wormhole)", "Balancer (Wormhole)", "Curve DAO Token (Wormhole) Token", "Wrapped Aave", "Wrapped SUSHI (Sollet)"],
+        tokenSymb: ["wWBTC", "wBAL", "wCRV", "AAVE", "SUSHI"],
+        tokenAdd: [
+            "0x6fbf8f06ebce724272813327255937e7d1e72298",
+            "0xc60911b5577f10f582914205d61c64622a6924d8",
+            "0xd3d383799d3a36b2279e7741b80ec3bdabae4b80",
+            "0x9e7c05e787bac79730eca196cfab2b1b53f2ff47",
+            "0xb3fd58eda12a6e5577a962aaaa3b15037e756eb4",
+        ],
+        denorms: [2000, 2000, 2000, 2000, 2000],
+        vault: "0x89E2539ADBf0c366f2f076f1B53b06F61266c10E",
     }, */
 }
 

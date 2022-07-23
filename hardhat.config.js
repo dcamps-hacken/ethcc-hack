@@ -25,6 +25,14 @@ module.exports = {
             accounts: [process.env.PRIVATE_KEY],
             chainId: 80001,
         },
+        matic: {
+            url: process.env.POLYGON_RPC_URL,
+            accounts: [process.env.PRIVATE_KEY],
+            chainId: 137,
+            gas: 3000000,
+            gasPrice: 70000000000,
+            blockGasLimit: 10000000,
+        },
         neonlabs: {
             url: process.env.NEON_RPC_URL,
             accounts: [process.env.PRIVATE_KEY],
@@ -62,6 +70,7 @@ module.exports = {
     },
     etherscan: {
         apiKey: {
+            polygon: process.env.POLYGONSCAN_API_KEY,
             polygonMumbai: process.env.POLYGONSCAN_API_KEY,
             celo: process.env.CELOSCAN_API_KEY,
         },
