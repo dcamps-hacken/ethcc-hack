@@ -60,6 +60,12 @@ module.exports = {
             chainId: 42220,
         },
     },
+    etherscan: {
+        apiKey: {
+            polygonMumbai: process.env.POLYGONSCAN_API_KEY,
+            celo: process.env.CELOSCAN_API_KEY,
+        },
+    },
     namedAccounts: {
         deployer: {
             default: 0,
