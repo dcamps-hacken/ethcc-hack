@@ -12,9 +12,12 @@ module.exports = async ({ deployments, getNamedAccounts }) => {
         args: [],
         log: true,
     })
-    /* Initialize price oracle (swap router address) */
-    oracleC = await ethers.getContract("PriceOracle")
-    //await oracleC.initialize(networkConfig[chainId]["lpOracle"])
+
+    /* oracleC = await ethers.getContract("PriceOracle")
+    const oracleInit = await oracleC.initialize(
+        networkConfig[chainId]["lpOracle"]
+    )
+    oracleInit.wait() */
 
     const access = await deploy("AccessController", {
         from: deployer,
@@ -28,15 +31,12 @@ module.exports = async ({ deployments, getNamedAccounts }) => {
         log: true,
     })
 
-    argsIM = [access.address, networkConfig[chainId]["lpOracle"], vault.address]
+    /* argsIM = [access.address, networkConfig[chainId]["lpOracle"], vault.address]
     const iManager = await deploy("IndexManager", {
         from: deployer,
         args: argsIM,
         log: true,
-    })
-
-    vaultC = await ethers.getContract("MyModule")
-    //await vaultC.addOwner(iManager.address)
+    }) */
 
     const isLib = await deploy("IndexSwapLibrary", {
         from: deployer,
@@ -44,27 +44,35 @@ module.exports = async ({ deployments, getNamedAccounts }) => {
         log: true,
     })
 
-    const iSwap = await deploy("IndexSwap", {
+    /* const iSwap = await deploy("IndexSwap", {
         from: deployer,
         args: [],
         log: true,
-    })
+    }) */
 
-    iSwapC = await ethers.getContract("IndexSwap")
-    /* await iSwapC.initialize(
+    /* iSwapC = await ethers.getContract("IndexSwap")
+
+    const initISwap1 = await iSwapC.initialize(
         networkConfig[chainId]["token"],
         networkConfig[chainId]["symbol"],
         networkConfig[chainId]["address"],
         networkConfig[chainId]["vault"],
-        "1000",
+        ethers.utils.parseEther("1000"),
         isLib.address,
         iManager.address,
         access.address
     )
-    await iSwapC.init(
+    initISwap1.wait() */
+
+    /* const initISwap2 = await iSwapC.init(
         networkConfig[chainId]["tokenAdd"],
         networkConfig[chainId]["denorms"]
-    ) */
+    )
+    initISwap2.wait() */
+
+    /* vaultC = await ethers.getContract("MyModule")
+    const addOwner = await vaultC.addOwner(iManager.address)
+    addOwner.wait() */
 
     if (!developmentChains.includes(network.name)) {
         log("Verifying...")

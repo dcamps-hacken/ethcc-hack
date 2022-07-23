@@ -57,15 +57,19 @@ const networkConfig = {
         denorms: [2000, 2000, 2000, 2000, 2000],
         vault: "0x89E2539ADBf0c366f2f076f1B53b06F61266c10E",
     },
-    /* 245022926: {
+    245022926: {
         name: "neonlabs",
-        lpOracle:,
         token: "Wrapped Neon",
-        symbol: "WNEON",
+        symbol: "wNEON",
         address: "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
         lpOracle: "0x831753dd7087cac61ab5644b308642cc1c33dc13",
-        weth: "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
-        tokenNames: ["Wrapped BTC (Wormhole)", "Balancer (Wormhole)", "Curve DAO Token (Wormhole) Token", "Wrapped Aave", "Wrapped SUSHI (Sollet)"],
+        tokenNames: [
+            "Wrapped BTC (Wormhole)",
+            "Balancer (Wormhole)",
+            "Curve DAO Token (Wormhole) Token",
+            "Wrapped Aave",
+            "Wrapped SUSHI (Sollet)",
+        ],
         tokenSymb: ["wWBTC", "wBAL", "wCRV", "AAVE", "SUSHI"],
         tokenAdd: [
             "0x6fbf8f06ebce724272813327255937e7d1e72298",
@@ -76,7 +80,7 @@ const networkConfig = {
         ],
         denorms: [2000, 2000, 2000, 2000, 2000],
         vault: "0x89E2539ADBf0c366f2f076f1B53b06F61266c10E",
-    }, */
+    },
 }
 
 const developmentChains = ["hardhat", "localhost"]
