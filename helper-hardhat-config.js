@@ -15,6 +15,9 @@ const networkConfig = {
     },
     137: {
         name: "polygon",
+        token: "Wrapped Matic",
+        symbol: "WMATIC",
+        address: "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
         lpOracle: "0x831753dd7087cac61ab5644b308642cc1c33dc13",
         weth: "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
         tokenNames: ["Maker", "Uniswap", "ChainLink Token", "Aave", "Compound"],
@@ -26,6 +29,8 @@ const networkConfig = {
             "0xD6DF932A45C0f255f85145f286eA0b292B21C90B",
             "0x8505b9d2254A7Ae468c0E9dd10Ccea3A837aef5c",
         ],
+        denorms: [2000, 2000, 2000, 2000, 2000],
+        vault: "matic:0x2053B29Bb5B62D498F541fBC13bEfBB36BF52659",
     },
     /* 80001: {
         name: "mumbai",
@@ -40,6 +45,9 @@ const networkConfig = {
     42220: {
         name: "celo",
         lpOracle: "0x1c8e0f6e5619c50aafc9214cbbcfc5d2fb3bf6c1",
+        token: "Wrapped Celo",
+        symbol: "WCELO",
+        address: "0x3Ad443d769A07f287806874F8E5405cE3Ac902b9",
         weth: "0x122013fd7df1c6f636a5bb8f03108e876548b455",
         tokenNames: [
             "Ubeswap",
@@ -56,6 +64,7 @@ const networkConfig = {
             "0xD629eb00dEced2a080B7EC630eF6aC117e614f1b",
             "0xef4229c8c3250C675F21BCefa42f58EfbfF6002a",
         ],
+        denorms: [2000, 2000, 2000, 2000, 2000],
     },
     44787: {
         name: "alfajor",

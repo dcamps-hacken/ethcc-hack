@@ -20,13 +20,13 @@ module.exports = async ({ deployments, getNamedAccounts }) => {
         log: true,
     })
 
-    const mod = await deploy("MyModule", {
+    const vault = await deploy("MyModule", {
         from: deployer,
-        args: [deployer],
+        args: [iManager],
         log: true,
     })
 
-    argsIM = [access.address, networkConfig[chainId]["lpOracle"], mod.address]
+    argsIM = [access.address, networkConfig[chainId]["lpOracle"], vault.address]
     const iManager = await deploy("IndexManager", {
         from: deployer,
         args: argsIM,
@@ -39,27 +39,25 @@ module.exports = async ({ deployments, getNamedAccounts }) => {
         log: true,
     })
 
-    /* Deploy IndexSwap
-        Initialize 
-        Update rate
-    */
     const iSwap = await deploy("IndexSwap", {
         from: deployer,
         args: [],
         log: true,
     })
-    for (let i = 0; i < networkConfig[chainId]["tokenSymb"].length; i++) {
-        await iSwap.initialize(
-            networkConfig[chainId]["tokenNames"][i],
-            networkConfig[chainId]["tokenSymb"][i],
-            address _outAsset,
-            mod.address,
-            uint256 _maxInvestmentAmount,
-            isLib.address,
-            iManager.address,
-            access.address
-        )
-    }
+    await iSwap.initialize(
+        networkConfig[chainId]["token"],
+        networkConfig[chainId]["symbol"],
+        networkConfig[chainId]["address"],
+        networkConfig[chainId]["vault"],
+        "1000",
+        isLib.address,
+        iManager.address,
+        access.address
+    )
+    await iSwap.init(
+        networkConfig[chainId]["tokenAdd"],
+        networkConfig[chainId]["denorms"]
+    )
 
     if (!developmentChains.includes(network.name)) {
         log("Verifying...")
@@ -69,7 +67,7 @@ module.exports = async ({ deployments, getNamedAccounts }) => {
             "contracts/oracle/PriceOracle.sol:PriceOracle"
         )
         await verify(
-            mod.address,
+            vault.address,
             [deployer],
             "contracts/vault/MyModule.sol:MyModule"
         )
