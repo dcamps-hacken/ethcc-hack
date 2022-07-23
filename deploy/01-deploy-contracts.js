@@ -11,9 +11,16 @@ module.exports = async ({ deployments, getNamedAccounts }) => {
         log: true,
     })
 
-    const iManager = await deploy("IndexManager", {
+    const mod = await deploy("MyModule", {
         from: deployer,
         args: [],
+        log: true,
+    })
+
+    argsIM = [access.address, networkConfig[chainId]["oracle"], mod.address]
+    const iManager = await deploy("IndexManager", {
+        from: deployer,
+        args: argsIM,
         log: true,
     })
 
