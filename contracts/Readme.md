@@ -71,3 +71,13 @@ Tokens Included: SANDBOX(SAND), DECENTRALAND(MANA), AAVEGOTCHI(GHST)
 "IndexSwapLibrary" at 0x9C3aA76b58D45ECdA4a831BFc50e03Aa27023400 <br>
 "IndexManager" at 0xD3b005d4ad5541Ca4a3ceF8ff85fAdf8E2d9eD39 <br>
 "IndexSwap" at 0xB094C1db8D60c86bb5B41309A7FacC6aC046bED9 <br>
+
+# NEON TEST
+
+> the testing of the contracts is in process, you may encounter errors
+
+Run the tests with the following command in the CLI:
+
+```
+yarn hardhat test --network neonlabs
+```
