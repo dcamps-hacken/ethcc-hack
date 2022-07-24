@@ -31,12 +31,12 @@ module.exports = async ({ deployments, getNamedAccounts }) => {
         log: true,
     })
 
-    /* argsIM = [access.address, networkConfig[chainId]["lpOracle"], vault.address]
+    argsIM = [access.address, networkConfig[chainId]["lpOracle"], vault.address]
     const iManager = await deploy("IndexManager", {
         from: deployer,
         args: argsIM,
         log: true,
-    }) */
+    })
 
     const isLib = await deploy("IndexSwapLibrary", {
         from: deployer,
@@ -44,11 +44,11 @@ module.exports = async ({ deployments, getNamedAccounts }) => {
         log: true,
     })
 
-    /* const iSwap = await deploy("IndexSwap", {
+    const iSwap = await deploy("IndexSwap", {
         from: deployer,
         args: [],
         log: true,
-    }) */
+    })
 
     /* iSwapC = await ethers.getContract("IndexSwap")
 
@@ -74,7 +74,7 @@ module.exports = async ({ deployments, getNamedAccounts }) => {
     const addOwner = await vaultC.addOwner(iManager.address)
     addOwner.wait() */
 
-    if (!developmentChains.includes(network.name)) {
+    /* if (!developmentChains.includes(network.name)) {
         log("Verifying...")
         await verify(
             oracle.address,
@@ -107,7 +107,7 @@ module.exports = async ({ deployments, getNamedAccounts }) => {
             "contracts/core/IndexSwapLibrary.sol:IndexSwapLibrary"
         )
     }
-    log("--------------------------")
+    log("--------------------------") */
 }
 
 module.exports.tags = ["all", "tokens"]

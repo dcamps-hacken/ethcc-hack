@@ -3,9 +3,10 @@ task("invest", "invest 0.5 native tokens").setAction(async (taskArgs) => {
     indexSwap = await ethers.getContract("IndexSwap")
 
     const amount = "0.5"
-    const invesst = await indexSwap.investInFund({
+    const invest = await indexSwap.investInFund({
         value: ethers.utils.parseEther(amount),
     })
+    invest.wait()
 
     /* const investFrom = await indexSwap.connect(address).investInFund({
             value: ethers.utils.parseEther("0.5"),
