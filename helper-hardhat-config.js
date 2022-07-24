@@ -61,8 +61,8 @@ const networkConfig = {
         name: "neonlabs",
         token: "Wrapped Neon",
         symbol: "wNEON",
-        address: "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
-        lpOracle: "0x831753dd7087cac61ab5644b308642cc1c33dc13",
+        address: "0xf8aD328E98f85fccbf09E43B16dcbbda7E84BEAB",
+        lpOracle: "0x53172f5CF9fB7D7123A2521a26eC8DB2707045E2",
         tokenNames: [
             "Wrapped BTC (Wormhole)",
             "Balancer (Wormhole)",
